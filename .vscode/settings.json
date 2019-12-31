@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "unity_fixture.h": "c",
+        "unity_fixture_malloc_overrides.h": "c"
+    }
+}
