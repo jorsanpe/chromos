@@ -1,1 +1,1 @@
-# Chromos - a tiny web framework for C
+# Chromos - a web framework for C
