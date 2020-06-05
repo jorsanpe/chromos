@@ -1,1 +1,3 @@
-# Chromos - a web framework for C
+# Chromos
+
+Middleware wrappers for CPM

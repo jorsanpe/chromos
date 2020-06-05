@@ -1,0 +1,9 @@
+name: 'chromos'
+description: 'Middleware functions and wrappers for CPM'
+packages:
+  chromos:
+bits:
+  zeromq: '4.3.2'
+  cest: '1.0'
+link_options:
+  libraries: ['pthread']

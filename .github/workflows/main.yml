@@ -1,19 +1,27 @@
-name: CI
+name: C/C++ CI
 
 on:
   push:
     branches:
-    - master
-  pull_request:
-    branches:
-    - master
+      - '*'
 
 jobs:
   build:
-
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Testing
-      run: echo Testing
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: |
+          pip3 install --upgrade cpm-cli
+          cpm install
+      - name: Test
+        run: |
+          cpm test
+      - name: Build
+        run: |
+          cpm build
