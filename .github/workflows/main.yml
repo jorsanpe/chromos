@@ -19,6 +19,7 @@ jobs:
         run: |
           pip3 install --upgrade cpm-cli
           cpm install
+          sudo apt install -yq ninja-build g++
       - name: Test
         run: |
           cpm test
