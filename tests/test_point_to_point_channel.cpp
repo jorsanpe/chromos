@@ -42,4 +42,16 @@ describe("PointToPointChannel", []() {
 
         expect(receiver.receive()).toBe(payload);
     });
+
+    it("allows multiple producers and one consumer on a channel", []() {
+        ConsumerChannel receiver("tcp://127.0.0.1:9876");
+        ProducerChannel producer1("tcp://127.0.0.1:9876");
+        ProducerChannel producer2("tcp://127.0.0.1:9876");
+
+        producer1.send("Producer 1 Payload");
+        producer2.send("Producer 2 Payload");
+
+        expect(receiver.receive()).toBe("Producer 1 Payload");
+        expect(receiver.receive()).toBe("Producer 2 Payload");
+    });
 });
