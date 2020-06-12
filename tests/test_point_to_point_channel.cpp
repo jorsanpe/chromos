@@ -25,33 +25,33 @@ using namespace cest;
 
 describe("PointToPointChannel", []() {
     it("creates the producer/consumers channels and allows sending messages", []() {
-        ConsumerChannel receiver("tcp://127.0.0.1:9876");
+        ConsumerChannel consumer("tcp://127.0.0.1:9876");
         ProducerChannel sender("tcp://127.0.0.1:9876");
 
         sender.send("Message Payload");
 
-        expect(receiver.receive()).toBe("Message Payload");
+        expect(consumer.receive()).toBe("Message Payload");
     });
 
     it("can send message payloads of up to 1 MB", []() {
-        ConsumerChannel receiver("tcp://127.0.0.1:9876");
-        ProducerChannel sender("tcp://127.0.0.1:9876");
+        ConsumerChannel consumer("tcp://127.0.0.1:9876");
+        ProducerChannel producer("tcp://127.0.0.1:9876");
         std::string payload(1024*1024, 'A');
 
-        sender.send(payload);
+        producer.send(payload);
 
-        expect(receiver.receive()).toBe(payload);
+        expect(consumer.receive()).toBe(payload);
     });
 
     it("allows multiple producers and one consumer on a channel", []() {
-        ConsumerChannel receiver("tcp://127.0.0.1:9876");
+        ConsumerChannel consumer("tcp://127.0.0.1:9876");
         ProducerChannel producer1("tcp://127.0.0.1:9876");
         ProducerChannel producer2("tcp://127.0.0.1:9876");
 
-        producer1.send("Producer 1 Payload");
-        producer2.send("Producer 2 Payload");
+        producer1.send("Producer Payload");
+        producer2.send("Producer Payload");
 
-        expect(receiver.receive()).toBe("Producer 1 Payload");
-        expect(receiver.receive()).toBe("Producer 2 Payload");
+        expect(consumer.receive()).toBe("Producer Payload");
+        expect(consumer.receive()).toBe("Producer Payload");
     });
 });
