@@ -48,10 +48,10 @@ describe("PointToPointChannel", []() {
         ProducerChannel producer1("tcp://127.0.0.1:9876");
         ProducerChannel producer2("tcp://127.0.0.1:9876");
 
-        producer1.send("Producer 1 Payload");
-        producer2.send("Producer 2 Payload");
+        producer1.send("Producer Payload");
+        producer2.send("Producer Payload");
 
-        expect(consumer.receive()).toBe("Producer 1 Payload");
-        expect(consumer.receive()).toBe("Producer 2 Payload");
+        expect(consumer.receive()).toBe("Producer Payload");
+        expect(consumer.receive()).toBe("Producer Payload");
     });
 });
