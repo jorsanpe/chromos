@@ -1,9 +1,11 @@
-name: 'chromos'
+name: 'chromos-actors'
 description: 'Middleware functions and wrappers for CPM'
+version: '1.0'
 packages:
   chromos:
 bits:
   zeromq: '4.3.2'
   cest: '1.0'
+  chromos-channels: '1.0'
 link_options:
   libraries: ['pthread']
