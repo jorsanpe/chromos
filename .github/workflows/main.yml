@@ -18,11 +18,16 @@ jobs:
       - name: Install dependencies
         run: |
           pip3 install --upgrade cpm-cli
-          cpm install
           sudo apt install -yq ninja-build g++
-      - name: Test
+      - name: Test and Build Channels
+        working-directory: ./chromos-channels
         run: |
+          cpm install
           cpm test
-      - name: Build
+          cpm build
+      - name: Test and Build Actors
+        working-directory: ./chromos-actors
         run: |
+          cpm install
+          cpm test
           cpm build
