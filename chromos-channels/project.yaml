@@ -1,6 +1,6 @@
 name: 'chromos-channels'
 description: 'Middleware functions and wrappers for CPM'
-version: '1.0'
+version: '1.0.1'
 packages:
   chromos:
 bits:
