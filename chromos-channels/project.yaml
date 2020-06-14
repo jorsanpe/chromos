@@ -5,6 +5,7 @@ packages:
   chromos:
 bits:
   zeromq: '4.3.2'
+test_bits:
   cest: '1.0'
 link_options:
   libraries: ['pthread']
