@@ -1,0 +1,10 @@
+name: chromos-logging
+packages:
+  chromos:
+bits:
+  spdlog: '1.6.1'
+test_bits:
+  cest: '1.0'
+link_options:
+  libraries: ['pthread']
+
